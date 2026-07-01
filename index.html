@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Конструктор отчетов</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero no-print">
+        <div>
+          <p class="eyebrow">Быстрые отчеты по сайтам</p>
+          <h1>Собирайте понятный отчет по датам, описаниям и скриншотам</h1>
+          <p>
+            Добавляйте выполненные работы, прикрепляйте изображения, а документ сам распределит
+            пункты по датам. Для PDF нажмите «Сохранить в PDF» и выберите PDF-принтер браузера.
+          </p>
+        </div>
+        <button class="primary-button" type="button" id="printButton">⬇ Сохранить в PDF</button>
+      </section>
+
+      <section class="workspace">
+        <aside class="panel no-print">
+          <div class="panel-header">
+            <span class="panel-icon">📄</span>
+            <div>
+              <h2>Данные отчета</h2>
+              <p>Заполните шапку и добавляйте пункты работ.</p>
+            </div>
+          </div>
+
+          <label>
+            Клиент
+            <input id="clientName" placeholder="Например, ООО «Сайт»" />
+          </label>
+
+          <label>
+            Проект / сайт
+            <input id="projectName" placeholder="example.ru" />
+          </label>
+
+          <label>
+            Период отчета
+            <input id="period" placeholder="Июнь 2026" />
+          </label>
+
+          <form class="entry-form" id="entryForm">
+            <h3>Новый пункт</h3>
+            <label>
+              Дата работ
+              <input id="entryDate" type="date" />
+            </label>
+
+            <label>
+              Краткий заголовок
+              <input id="entryTitle" placeholder="Например, Обновили главный экран" required />
+            </label>
+
+            <label>
+              Описание изменений
+              <textarea
+                id="entryDescription"
+                placeholder="Что сделали, зачем, какой результат получил клиент"
+                rows="6"
+                required
+              ></textarea>
+            </label>
+
+            <label class="upload-box">
+              <span class="upload-icon">🖼️</span>
+              <span>Добавить изображения или скриншоты</span>
+              <input id="entryImages" type="file" accept="image/*" multiple />
+            </label>
+
+            <div class="pending-images" id="pendingImages"></div>
+
+            <button class="secondary-button" type="submit">＋ Добавить в отчет</button>
+          </form>
+        </aside>
+
+        <section class="report-page" aria-label="Предпросмотр отчета">
+          <header class="report-cover">
+            <div>
+              <p class="report-label">Отчет о выполненных работах</p>
+              <h2 id="reportProject">Название проекта / сайта</h2>
+              <p id="reportClient">Клиент не указан</p>
+            </div>
+            <div class="report-meta">📅 <span id="reportPeriod">Период не указан</span></div>
+          </header>
+
+          <div class="stats-row">
+            <div>
+              <strong id="itemsCount">0</strong>
+              <span>пунктов работ</span>
+            </div>
+            <div>
+              <strong id="datesCount">0</strong>
+              <span>дат в отчете</span>
+            </div>
+            <div>
+              <strong id="imagesCount">0</strong>
+              <span>изображений</span>
+            </div>
+          </div>
+
+          <div class="empty-state" id="emptyState">
+            <h3>Пока нет пунктов отчета</h3>
+            <p>Добавьте дату, описание и изображения — здесь появится готовый документ.</p>
+          </div>
+
+          <div class="timeline" id="timeline"></div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
