@@ -1,0 +1,13 @@
+{
+  "name": "otchet-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Report builder for website work changes with date grouping, image attachments, and PDF-friendly export.",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 5173",
+    "build": "node --check src/main.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
